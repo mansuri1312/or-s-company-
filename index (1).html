@@ -44,8 +44,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מערכת ויזואליזציה מתקדמת</title>
     <style>
+        @font-face {
+            font-family: 'Rubik';
+            src: url('data:application/font-woff2;charset=utf-8;base64,/* כאן יש להוסיף קידוד WOFF2 של גופן Rubik אם רוצים גישה מקומית, או להסתמך על גופן מערכת */');
+            /* אם אין גופן מקומי, נשתמש בגופן מערכת כגיבוי */
+            font-family: fallback, sans-serif;
+        }
         body {
-            font-family: 'Rubik', sans-serif;
+            font-family: 'Rubik', fallback, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #1e3c72, #2a5298);
@@ -122,5 +128,11 @@
             <p>© 2025 DataVision. כל הזכויות שמורות.</p>
         </footer>
     </div>
+    <script>
+        // טיפול בסיסי בשגיאות לוג
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.log('שגיאה: ' + message + ' ב-' + source + ':' + lineno + ':' + colno);
+        };
+    </script>
 </body>
 </html>
